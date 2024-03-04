@@ -2,14 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <script src="menu.js"></script>
+    <script src="mind.js"></script>
     <title>Trapped Inside</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+<div id="game">
+    <script type="text/javascript">
+        const config = {
+            type: Phaser.AUTO,
+            scale: {
+                mode: Phaser.Scale.FIT
+            },
+            autoCenter: Phaser.Scale.CENTER,
+            width: 960,
+            height: 540,
+            backgroundColor: '#39addd',
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 300 },
+                    debug: true
+                }
+            },
+            parent: "game",
+            dom:{
+                createContainer: true,
+            },
 
-<script src="index.js"></script>
+            scene: [Menu, Mind]
+        };
 
+        var game = new Phaser.Game(config);
+        game.scene.start('Menu')
+    </script>
+</div>
 </body>
 </html>
